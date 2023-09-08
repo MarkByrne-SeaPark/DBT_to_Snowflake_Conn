@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: booking_summary_by_airline
+    description: "A summary table of total bookings, average price, and total luggage weight by airline."
+    columns:
+      - name: AIRLINE
+        description: "Airline code"
+        tests:
+          - unique
+          - not_null
+      - name: total_bookings
+        description: "Total number of bookings made with the airline"
+      - name: avg_price
+        description: "Average booking price for the airline"
+      - name: total_luggage_weight
+        description: "Total weight of luggage carried by the airline"
+        
+  - name: avg_booking_price_by_country
+    description: "Calculates the average booking price by customer country."
+    columns:
+      - name: CUSTOMERCOUNTRY
+        description: "Country of the customer"
+        tests:
+          - unique
+          - not_null
+      - name: avg_price
+        description: "Average booking price by country"
+
+  - name: bookings_for_year_2019
+    description: "Extracts all bookings for the year 2019."
+
+  - name: booking_count_by_customer
+    description: "Counts the number of bookings by each customer."
+    columns:
+      - name: CUSTOMER
+        description: "Customer ID"
+        tests:
+          - unique
+          - not_null
+      - name: total_bookings
+        description: "Total number of bookings made by the customer"
+
+  - name: recent_customer_bookings
+    description: "Provides details of the most recent booking for each customer."
+    columns:
+      - name: CUSTOMER
+        description: "Customer ID"
+        tests:
+          - unique
+          - not_null
+      # Add more columns and tests as needed
